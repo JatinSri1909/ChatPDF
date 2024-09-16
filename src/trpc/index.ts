@@ -41,12 +41,12 @@ export const appRouter = router({
     });
   }),
   getFile: privateProcedure
-    .input(z.object({ id: z.string() }))
+    .input(z.object({ key: z.string() }))
     .mutation(async({ input, ctx }) => {
         const { userId } = ctx;
         const file = await db.file.findFirst({
             where: {
-                key: input.id,
+                key: input.key,
                 userId,
             },
         });

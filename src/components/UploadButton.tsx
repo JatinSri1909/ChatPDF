@@ -73,7 +73,7 @@ const UploadDropzone = () => {
             clearInterval(progressInterval);
             setUploadProgress(100);
 
-            startPolling({ id: key });
+            startPolling({ key });
         }}>
             {({ getRootProps, getInputProps, acceptedFiles}) => (
                 <div {...getRootProps()}

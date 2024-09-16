@@ -11,13 +11,14 @@ interface PageProps {
 }
 
 const Page = async({ params }: PageProps) => {
+  
     const { fileid } = params; 
 
     const { getUser } = getKindeServerSession();
     const user = getUser();
 
     if(!user || !(await user).id) redirect(`/auth-callback?origin=dashboard/${fileid}`);
-
+  
     const file = await db.file.findFirst({
         where: {
             id: fileid,
